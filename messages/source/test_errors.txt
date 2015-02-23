@@ -1,0 +1,47 @@
+--
+--	component:   Eiffel Application Framework
+--	description: Test Error Message database
+--	keywords:    error message
+--	author:      Thomas Beale
+--	copyright:   Copyright (c) 2010- Ocean Informatics Pty Ltd
+--	license:     Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>
+--
+
+templates = <
+	["en"] = <
+		["message_code_error"] = <"Error code $1 does not exist (calling context = $2.$3)">
+
+		-- APPLICATION
+		["report_exception"] = <"Software Exception $1 caught; Stack:%N$2">
+		["general_error"] = <"$1">
+		["read_failed_file_does_not_exist"] = <"Read failed; file $1 does not exist.">
+		["app_launched"] = <"Application launched">
+		["missing_config_file_warning"] = <"No config file found, expected in $1">
+
+		-- APP_OBJECT_1
+		["app_obj_1_path_error"] = <"App object 1 wrong path $1 on item $2">
+		["app_obj_1_file_error"] = <"App object 1 wrong file $1 on system $2">
+
+		-- APP_OBJECT_2
+		["app_obj_2_path_error"] = <"App object 2 wrong path $1 on item $2">
+		["app_obj_2_file_error"] = <"App object 2 wrong file $1 on system $2">
+	>
+	["fr"] = <
+		["message_code_error"] = <"Code $1 n'existe pas (contexte appellant = $2.$3)">
+
+		-- APPLICATION
+		["report_exception"] = <"Exception $1 attrapé; Stack:%N$2">
+		["general_error"] = <"$1">
+		["read_failed_file_does_not_exist"] = <"Lecture échoué: fichier $1 n'existe pas.">
+		["app_launched"] = <"Application lancé">
+		["missing_config_file_warning"] = <"Fichier de configuration non trouvé, expected in $1">
+
+		-- APP_OBJECT_1
+		["app_obj_1_path_error"] = <"App object 1 mauvais chemin $1 pour élément $2">
+		["app_obj_1_file_error"] = <"App object 1 mauvais fichier $1 sur système $2">
+
+		-- APP_OBJECT_2
+		["app_obj_2_path_error"] = <"App object 2 mauvais chemin $1 pour élément $2">
+		["app_obj_2_file_error"] = <"App object 2 mauvais fichier $1 sur système $2">
+	>
+>
