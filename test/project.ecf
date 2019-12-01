@@ -6,8 +6,8 @@
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
 		</option>
 		<setting name="console_application" value="true"/>
-		<precompile name="base_pre" location="$ISE_PRECOMP/base-safe.ecf"/>
-		<library name="base" location="$ISE_LIBRARY/library/base/base-safe.ecf"/>
+		<precompile name="base_pre" location="$ISE_PRECOMP/base.ecf"/>
+		<library name="base" location="$ISE_LIBRARY/library/base/base.ecf"/>
 		<library name="error_message" location="$EIFFEL_HUB\error_message\src\error_message.ecf"/>
 
 		<cluster name="project" location=".\" recursive="true" />

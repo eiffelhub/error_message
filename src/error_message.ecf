@@ -10,7 +10,7 @@
     </file_rule>
     <option warning="true" void_safety="all" full_class_checking="true" is_attached_by_default="true"/>
     
-    <library name="base" location="$ISE_LIBRARY\library\base\base-safe.ecf"/>
+    <library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
     <cluster name="error_message" location=".\" recursive="false"/>
   </target>
 </system>
