@@ -18,27 +18,27 @@ create
 
 feature -- Initialisation
 
-	make_error (a_code, a_message: STRING; a_loc: detachable STRING)
+	make_error (a_code, a_message: READABLE_STRING_8; a_loc: detachable READABLE_STRING_8)
 		do
 			make (a_code, error_type_error, a_message, a_loc)
 		end
 
-	make_warning (a_code, a_message: STRING; a_loc: detachable STRING)
+	make_warning (a_code, a_message: READABLE_STRING_8; a_loc: detachable READABLE_STRING_8)
 		do
 			make (a_code, error_type_warning, a_message, a_loc)
 		end
 
-	make_info (a_code, a_message: STRING; a_loc: detachable STRING)
+	make_info (a_code, a_message: READABLE_STRING_8; a_loc: detachable READABLE_STRING_8)
 		do
 			make (a_code, error_type_info, a_message, a_loc)
 		end
 
-	make_debug (a_message: STRING; a_loc: detachable STRING)
+	make_debug (a_message: READABLE_STRING_8; a_loc: detachable READABLE_STRING_8)
 		do
 			make ("", error_type_debug, a_message, a_loc)
 		end
 
-	make (a_code: STRING; a_severity: INTEGER; a_message: STRING; a_loc: detachable STRING)
+	make (a_code: READABLE_STRING_8; a_severity: INTEGER; a_message: READABLE_STRING_8; a_loc: detachable READABLE_STRING_8)
 		require
 			Severity_valid: is_valid_error_type (a_severity)
 		do
@@ -50,13 +50,13 @@ feature -- Initialisation
 
 feature -- Access
 
-	code: STRING
+	code: READABLE_STRING_8
 
 	severity: INTEGER
 
-	message: STRING
+	message: READABLE_STRING_8
 
-	location: detachable STRING
+	location: detachable READABLE_STRING_8
 
 feature -- Output
 

@@ -2,9 +2,9 @@ note
 	component:   "Eiffel Application Framework"
 	description: "In-memory error database."
 	keywords:    "error status reporting"
-	author:      "Thomas Beale <thomas.beale@oceaninformatics.com>"
+	author:      "Thomas Beale <thomas.beale@openehr.org>"
 	support:     "http://www.openehr.org/issues/browse/AWB"
-	copyright:   "Copyright (c) 2005- Ocean Informatics Pty Ltd <http://www.oceaninfomatics.com>"
+	copyright:   "Copyright (c) 2005- The openEHR Foundation <http://www.openEHR.org>"
 	license:     "Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>"
 
 class MESSAGE_DB
@@ -34,13 +34,13 @@ feature -- Access
 			Result := message_table.has (an_id)
 		end
 
-	create_message_content (an_id: STRING; args: detachable ARRAY[STRING]): STRING
+	create_message_content (an_id: STRING; args: detachable ARRAY[READABLE_STRING_8]): STRING
 			-- extract message for `an_id' from `message_table', perform substitutions from `args'
 			-- and return the Result. If not found, return a standard message code error message.
 		local
 			i: INTEGER
 			idx_str: STRING
-			args_list: detachable ARRAY[STRING]
+			args_list: detachable ARRAY[READABLE_STRING_8]
 			replacement: STRING
 		do
 			-- obtain an error message for the code `an_id'
@@ -99,7 +99,7 @@ feature -- Access
 			end
 		end
 
-	create_message_line (an_id: STRING; args: detachable ARRAY[STRING]): STRING
+	create_message_line (an_id: READABLE_STRING_8; args: detachable ARRAY[READABLE_STRING_8]): STRING
 			-- same as `create_message_content' but with added newline at end
 		do
 			Result := create_message_content (an_id, args)
