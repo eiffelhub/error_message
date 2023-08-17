@@ -22,6 +22,8 @@ inherit
 			{NONE} all
 		end
 
+	ITERABLE[ERROR_DESCRIPTOR]
+
 create
 	make
 
@@ -63,6 +65,11 @@ feature -- Access
 			end
 		end
 
+	new_cursor: ITERATION_CURSOR [ERROR_DESCRIPTOR]
+		do
+			Result := list.new_cursor
+		end
+
 feature -- Status Report
 
 	is_empty: BOOLEAN
@@ -90,14 +97,14 @@ feature -- Status Report
 	has_matching_error (a_code: STRING): BOOLEAN
 			-- True if there has been an error whose code starts with code `a_code'
 		do
-			Result := across list as list_csr some 
+			Result := across list as list_csr some
 				list_csr.item.severity = error_type_error and list_csr.item.code.starts_with (a_code) end
 		end
 
 	has_matching_warning (a_code: STRING): BOOLEAN
 			-- True if there has been a warning whose code starts with code `a_code'
 		do
-			Result := across list as list_csr some 
+			Result := across list as list_csr some
 				list_csr.item.severity = error_type_warning and list_csr.item.code.starts_with (a_code) end
 		end
 
