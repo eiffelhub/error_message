@@ -42,6 +42,7 @@ feature -- Initialisation
 		require
 			Severity_valid: is_valid_error_type (a_severity)
 		do
+			artefact_id := ""
 			code := a_code
 			severity := a_severity
 			message := a_message
@@ -49,6 +50,8 @@ feature -- Initialisation
 		end
 
 feature -- Access
+
+	artefact_id: READABLE_STRING_8
 
 	code: READABLE_STRING_8
 
@@ -58,11 +61,23 @@ feature -- Access
 
 	location: detachable READABLE_STRING_8
 
+feature -- Modification
+
+	set_artefact_id (a_str: STRING)
+			-- set artefact_id to a_str
+		do
+			artefact_id := a_str
+		end
+
 feature -- Output
 
 	as_string: STRING
 		do
-			create Result.make_empty
+			if not artefact_id.is_empty then
+				create Result.make_from_string ("[" + artefact_id + "]: ")
+			else
+				create Result.make_empty
+			end
 			Result.append (error_type_name (severity) + " ")
 			if attached location as att_loc and then not att_loc.is_empty then
 				Result.append (att_loc + ": ")

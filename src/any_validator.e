@@ -71,6 +71,12 @@ feature -- Modification
 			passed := passed and not other_errors.has_errors
 		end
 
+	merge_errors_from_other (other_errors: ERROR_ACCUMULATOR; other_id: STRING)
+		do
+			errors.append_from_other (other_errors, other_id)
+			passed := passed and not other_errors.has_errors
+		end
+
 	add_error (a_key: READABLE_STRING_8; args: detachable ARRAY [READABLE_STRING_8])
 			-- append an error with key `a_key' and `args' array to the `errors' string
 		do

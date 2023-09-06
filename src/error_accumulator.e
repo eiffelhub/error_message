@@ -146,6 +146,30 @@ feature -- Modification
 			has_info := has_info or other.has_info
 		end
 
+	append_from_other (other: ERROR_ACCUMULATOR; other_id: STRING)
+			-- append errors from a different entity; prepend all the appended error messages
+			-- with a TAB and the artefact id
+		local
+			list_csr: CURSOR
+		do
+			-- remember the end of the current list
+			list.finish
+			list_csr := list.cursor
+
+			list.append (other.list)
+			has_errors := has_errors or other.has_errors
+			has_warnings := has_warnings or other.has_warnings
+			has_info := has_info or other.has_info
+
+			list.go_to (list_csr)
+			list.forth
+
+			from until list.off loop
+				list.item.set_artefact_id (other_id)
+				list.forth
+			end
+		end
+
 	wipe_out
 		do
 			list.wipe_out
